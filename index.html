@@ -42,7 +42,7 @@
                 <div id="lossesValue">0</div>
             </p>
             <p>Current Word
-                <div id="currentWord">word</div>
+                <div id="currentWord"></div>
             </p>
             <p>Guesses Remainging
                 <div id="guessesRemaining">10</div>
@@ -62,6 +62,7 @@
                 var lossesValue = 0;
                 var guessesRemaining = 10;
                 var lettersGuessed = "";
+                var dashWord = "-";
 
                 //setting values back to its inital state different from reset function
                 function initial() {
@@ -71,19 +72,23 @@
                     lettersGuessedElement.innerHTML = lettersGuessed
                 } 
 
-                //generating words
+                //generating words and generate the dashes
                 function generateWord() {
                     var words = ["Husky", "Popcorn", "Joe"]
                     var results = words[Math.floor(Math.random() * 3)]
-                    console.log(results)
+                    console.log(results);
+                    dashWord = dashWord.repeat(results.length);
+                    console.log(dashWord)
                     return results;
                 }
+                
                 //button
                 function startGame() {
                     document.getElementById("startGame").innerHTML = "Lets Play!";
+                    currentWordElement.innerHTML = dashWord;
                 }
 
-                //pressed key
+                //pressed key and indexOf will search in the array to see if there the same letter. If there is the same letter, it will say "already guessed" in the console.
                 function pressedKey() {
                     if (lettersGuessed.indexOf(event.key) > -1) {
                         console.log("already guessed");
@@ -92,7 +97,10 @@
                     }
                     
                     lettersGuessedElement.innerHTML = lettersGuessed;
+                    currentWordElement.innerHTML = dashWord;
                 }
+
+
 
 
 
