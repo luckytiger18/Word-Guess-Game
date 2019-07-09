@@ -1,0 +1,44 @@
+body {
+    background: url("/Users/annieluc/Documents/GitHub/Word-Guess-Game/assets/images/bedge_grunge/bedge_grunge.png");
+}
+
+img {
+    border: solid black;
+  
+}
+
+h1 {
+    text-align: center;
+}
+#startGame {
+    padding: 10px;
+}
+
+.container {
+    padding: 10px;
+}
+
+p {
+    margin-left: 100px;
+    
+}
+#winsValue {
+    margin-left: 100px;
+    padding-right: 100px;   
+}
+
+#lossesValue {
+    margin-left: 100px;
+}
+
+#guessesRemaining {
+    margin-left: 100px;
+}
+
+#currentWord {
+    margin-left: 100px;
+}
+
+#lettersGuessed {
+    margin-left: 100px;
+}

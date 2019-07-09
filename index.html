@@ -7,11 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/Users/annieluc/Documents/GitHub/Word-Guess-Game/assets/style.css">
     <title>Word Guess Game</title>
 </head>
 
 <body>
-    <div class="container">
+    <div class="container jumbotron-fluid">
         <div class="row">
             <div class="col-lg-6 col-md-3 col-sm-12 col-xs-12">
                 <h1>Name the Dog Game</h1>
@@ -21,7 +22,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                    <img src="https://www.sciencenewsforstudents.org/sites/default/files/2016/06/main/articles/860-header-dog-breeds.jpg"
+                    <img src="https://www.sciencenewsforstudents.org/sites/default/files/2016/06/main/articles/860-header-dog-breeds.jpg" width="500px" height="250px"
                         alt="A group of dogs">
                 </div>
             </div>
@@ -66,11 +67,11 @@
 
                 //setting values back to its inital state different from reset function
                 function initial() {
-                    winsValueElement.innerHTML = winsValue;
-                    lossesValueElement.innerHTML = lossesValue;
-                    guessesRemainingElement.innerHTML = guessesRemaining;
-                    lettersGuessedElement.innerHTML = lettersGuessed
-                } 
+                    winsValueElement.innerText = winsValue;
+                    lossesValueElement.innerText = lossesValue;
+                    guessesRemainingElement.innerText = guessesRemaining;
+                    lettersGuessedElement.innerText = lettersGuessed
+                }
 
                 //generating words and generate the dashes
                 function generateWord() {
@@ -79,11 +80,11 @@
                     console.log(results);
                     return results;
                 }
-                
+
                 //button
                 function startGame() {
-                    document.getElementById("startGame").innerHTML = "Lets Play!";
-                    currentWordElement.innerHTML = dashWord;
+                    document.getElementById("startGame").innerText = "Lets Play!";
+                    currentWordElement.innerText = dashWord;
                     reveal();
                     document.onkeyup = pressedKey;
                 }
@@ -94,41 +95,41 @@
                         console.log("already guessed");
                     } else {
                         lettersGuessed.push(event.key);
-                        guessesRemaining = guessesRemaining - 1; 
+                        guessesRemaining = guessesRemaining - 1;
                         console.log(guessesRemaining)
-                    } 
+                    }
                     if (guessesRemaining == -1) {
                         lossesValue = lossesValue + 1;
-                        lossesValueElement.innerHTML = lossesValue;
+                        lossesValueElement.innerText = lossesValue;
                         console.log(lossesValue);
                         alert("Game Over");
                         reset()
-                    } 
-                   reveal()
+                    }
+                    reveal()
                     if (dashWord.indexOf("_") == -1) {
                         winsValue = winsValue + 1;
-                        winsValueElement.innerHTML = winsValue;
+                        winsValueElement.innerText = winsValue;
                         console.log("You win!");
                         reset();
-                      
+
                     }
-                //updating the elements; these will happen every time.   
-                   guessesRemainingElement.innerHTML = guessesRemaining; 
-                    lettersGuessedElement.innerHTML = lettersGuessed;
-                
+                    //updating the elements; these will happen every time.   
+                    guessesRemainingElement.innerText = guessesRemaining;
+                    lettersGuessedElement.innerText = lettersGuessed;
+
                 }
                 //revealing the current word
                 function reveal() {
                     dashWord = "";
-                    for (var i=0; i<currentWord.length; i++){
-                        if (lettersGuessed.includes(currentWord[i])){
+                    for (var i = 0; i < currentWord.length; i++) {
+                        if (lettersGuessed.includes(currentWord[i])) {
                             dashWord += currentWord[i];
-                        }else{
+                        } else {
                             dashWord += "_";
                         }
                     }
-                    currentWordElement.innerHTML = dashWord;
-                    
+                    currentWordElement.innerText = dashWord;
+
                 }
                 //resetting the current word, guesses remaining and letters entered
                 function reset() {
@@ -136,8 +137,8 @@
                     currentWord = generateWord();
                     lettersGuessed = [];
                     reveal();
-                    lettersGuessedElement.innerHTML = lettersGuessed;
-                    guessesRemainingElement.innerHTML = guessesRemaining;
+                    lettersGuessedElement.innerText = lettersGuessed;
+                    guessesRemainingElement.innerText = guessesRemaining;
                 }
 
 
@@ -146,9 +147,9 @@
                 initial() //just calling a function. Not assigning it to anything.
                 var currentWord = generateWord();
                 var lettersGuessed = [];
-                
-            
-                
+
+
+
 
             </script>
 
