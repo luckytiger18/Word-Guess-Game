@@ -62,7 +62,7 @@
                 var lossesValue = 0;
                 var guessesRemaining = 10;
                 var lettersGuessed = "";
-                var dashWord = "-";
+                var dashWord = "";
 
                 //setting values back to its inital state different from reset function
                 function initial() {
@@ -74,11 +74,9 @@
 
                 //generating words and generate the dashes
                 function generateWord() {
-                    var words = ["husky", "popcorn", "joe"]
-                    var results = words[Math.floor(Math.random() * 3)]
+                    var words = ["husky", "corgi", "boxer", "maltese"]
+                    var results = words[Math.floor(Math.random() * 4)]
                     console.log(results);
-                    dashWord = dashWord.repeat(results.length);
-                    console.log(dashWord)
                     return results;
                 }
                 
@@ -86,44 +84,71 @@
                 function startGame() {
                     document.getElementById("startGame").innerHTML = "Lets Play!";
                     currentWordElement.innerHTML = dashWord;
+                    reveal();
+                    document.onkeyup = pressedKey;
                 }
-
-
 
                 //pressed key and indexOf will search in the array to see if there the same letter. If there is the same letter, it will say "already guessed" in the console.
                 function pressedKey() {
                     if (lettersGuessed.indexOf(event.key) > -1) {
                         console.log("already guessed");
                     } else {
-                        lettersGuessed.push(event.key) 
+                        lettersGuessed.push(event.key);
+                        guessesRemaining = guessesRemaining - 1; 
+                        console.log(guessesRemaining)
                     } 
+                    if (guessesRemaining == -1) {
+                        lossesValue = lossesValue + 1;
+                        lossesValueElement.innerHTML = lossesValue;
+                        console.log(lossesValue);
+                        alert("Game Over");
+                        reset()
+                    } 
+                   reveal()
+                    if (dashWord.indexOf("_") == -1) {
+                        winsValue = winsValue + 1;
+                        winsValueElement.innerHTML = winsValue;
+                        console.log("You win!");
+                        reset();
+                      
+                    }
+                //updating the elements; these will happen every time.   
+                   guessesRemainingElement.innerHTML = guessesRemaining; 
+                    lettersGuessedElement.innerHTML = lettersGuessed;
+                
+                }
+                //revealing the current word
+                function reveal() {
                     dashWord = "";
                     for (var i=0; i<currentWord.length; i++){
                         if (lettersGuessed.includes(currentWord[i])){
                             dashWord += currentWord[i];
-                        
                         }else{
                             dashWord += "_";
                         }
                     }
-                    
-                    lettersGuessedElement.innerHTML = lettersGuessed;
                     currentWordElement.innerHTML = dashWord;
+                    
+                }
+                //resetting the current word, guesses remaining and letters entered
+                function reset() {
+                    guessesRemaining = 10;
+                    currentWord = generateWord();
+                    lettersGuessed = [];
+                    reveal();
+                    lettersGuessedElement.innerHTML = lettersGuessed;
+                    guessesRemainingElement.innerHTML = guessesRemaining;
                 }
 
 
 
-
-
-
-                //executing functions aka main function
+                //executing functions aka main function. This loads first when the page loads. 
                 initial() //just calling a function. Not assigning it to anything.
                 var currentWord = generateWord();
                 var lettersGuessed = [];
                 
-                document.onkeyup = pressedKey;
-
-
+            
+                
 
             </script>
 
