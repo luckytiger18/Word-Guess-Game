@@ -1,6 +1,9 @@
 body {
     background: url("/Users/annieluc/Documents/GitHub/Word-Guess-Game/assets/images/bedge_grunge/bedge_grunge.png");
+    border: solid black;
+    margin: 100px;
 }
+
 
 img {
     border: solid black;
@@ -9,6 +12,7 @@ img {
 
 h1 {
     text-align: center;
+    margin-left: 250px;
 }
 #startGame {
     padding: 10px;
@@ -16,6 +20,7 @@ h1 {
 
 .container {
     padding: 10px;
+    margin-left: 150px;
 }
 
 p {
