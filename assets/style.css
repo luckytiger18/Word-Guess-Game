@@ -1,49 +1,17 @@
 body {
     background: url("./images/bedge_grunge/bedge_grunge.png");
     border: solid black;
-    margin: 100px;
+    margin: 50px;
 }
-
-
 img {
     border: solid black;
   
 }
-
-h1 {
-    text-align: center;
-    margin-left: 250px;
-}
 #startGame {
     padding: 10px;
-}
-
-.container {
-    padding: 10px;
-    margin-left: 150px;
-}
-
-p {
-    margin-left: 100px;  
+    text-align: center;
 }
 #winsValue {
-    margin-left: 100px;
     padding-right: 100px;   
     text-decoration: none;
-}
-
-#lossesValue {
-    margin-left: 100px;
-}
-
-#guessesRemaining {
-    margin-left: 100px;
-}
-
-#currentWord {
-    margin-left: 100px;
-}
-
-#lettersGuessed {
-    margin-left: 100px;
 }
