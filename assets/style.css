@@ -24,13 +24,12 @@ h1 {
 }
 
 p {
-    margin-left: 100px;
-    
+    margin-left: 100px;  
 }
 #winsValue {
     margin-left: 100px;
     padding-right: 100px;   
-    text-decoration: 
+    text-decoration: none;
 }
 
 #lossesValue {

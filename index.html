@@ -14,43 +14,52 @@
 <body>
     <div class="container jumbotron-fluid">
         <div class="row">
-            <div class="col-lg-6 col-md-3 col-sm-12 col-xs-12">
+            <div class="offset-md-3 col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <h1>Name the Dog!</h1>
             </div>
         </div>
 
-        <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                    <img src="https://www.sciencenewsforstudents.org/sites/default/files/2016/06/main/articles/860-header-dog-breeds.jpg" width="500px" height="250px"
+                <div class="offset-md-3 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <img src="https://www.sciencenewsforstudents.org/sites/default/files/2016/06/main/articles/860-header-dog-breeds.jpg" class="img img-fluid"
                         alt="A group of dogs">
                 </div>
             </div>
-        </div>
 
-        <div class="container">
             <div class="row">
-                <div id="startGame" class="col-lg-6 col-md-3 col-sm-12 col-xs-12">
+                <div id="startGame" class="offset-md-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
                     <form>
                         <input type="button" class="btn btn-success" value="Click Start to Play" onclick="startGame()">
                     </form>
                 </div>
             </div>
-            <p>Wins
-                <div id="winsValue">0</div>
-            </p>
-            <p>Losses
-                <div id="lossesValue">0</div>
-            </p>
-            <p>Current Word
-                <div id="currentWord"></div>
-            </p>
-            <p>Guesses Remainging
-                <div id="guessesRemaining">10</div>
-            </p>
-            <p>Letters already guessed
-                <div id="lettersGuessed">letters</div>
-            </p>
+
+            <div class="row">
+                    <div class="offset-md-3 col-md-6 col-sm-6 col-xs-6">
+                            <p>Guesses Remainging: <span id="guessesRemaining">10</span></p>
+                    </div>
+            </div>
+
+            <div class="row">
+                <div class="offset-md-3 col-md-2 col-sm-3 col-xs-3">
+                        <p>Wins: <span id="winsValue">0</span></p>
+                </div>
+
+                <div class="col-md-2 col-sm-3 col-xs-3">
+                        <p>Losses: <span id="lossesValue">0</span></p>
+                </div>
+            </div>
+
+            <div class="row">
+                    <div class="offset-md-3 col-md-6 col-sm-6 col-xs-6">
+                            <p>Current Word: <span id="currentWord"></span></p>
+                    </div>
+            </div>
+            <div class="row">
+                    <div class="offset-md-3 col-md-6 col-sm-6 col-xs-6">
+                            <p>Letters Already Guessed: <span id="lettersGuessed"></span></p>
+                    </div>
+            </div>
 
             <script type="text/javascript">
 
@@ -125,7 +134,7 @@
                         if (lettersGuessed.includes(currentWord[i])) {
                             dashWord += currentWord[i];
                         } else {
-                            dashWord += "_";
+                            dashWord += "___ ";
                         }
                     }
                     currentWordElement.innerText = dashWord;
@@ -141,21 +150,11 @@
                     guessesRemainingElement.innerText = guessesRemaining;
                 }
 
-
-
                 //executing functions aka main function. This loads first when the page loads. 
                 initial() //just calling a function. Not assigning it to anything.
                 var currentWord = generateWord();
                 var lettersGuessed = [];
-
-
-
-
             </script>
-
-
-
-        </div>
 </body>
 
 </html>
